@@ -1,20 +1,17 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-/* import { useParams, Link, useNavigate } from 'react-router-dom'; */
+import { useParams } from 'react-router-dom';
 import { useChat } from '../../context/ChatContext';
 import './ChatWindow.css';
 
-const ChatWindow = ({ onOpenInfo }) => {
+const ChatWindow = ({ onOpenInfo, onBack, isMobile }) => {
     const { PhoneNumber } = useParams();
-    const navigate = useNavigate();
 
     const {
         contacts,
         messages,
         sendMessage,
         userName,
-        isTyping,
-        logout,
-        openStatus
+        isTyping
     } = useChat();
 
     const [text, setText] = useState('');
@@ -43,28 +40,28 @@ const ChatWindow = ({ onOpenInfo }) => {
     };
 
     if (!contact) {
-             return (
-                <div className="empty-chat">
+        return (
+            <div className="empty-chat">
                 <div className="empty-chat-content">
                     <h2>WhatsApp Web</h2>
                     <p>Selecciona un chat para comenzar</p>
                 </div>
-                </div>
-            );
-            }
+            </div>
+        );
+    }
 
     return (
         <div className="chat-window">
             <header className="chat-header">
-                {/* <Link to="/" className="back-btn">←</Link>
- */}                {isMobile && (
-                        <button className="back-btn" onClick={onBack}>
-                            ←
-                        </button>
-                    )}
-                <div className="chat-header-content">
 
-                   <img
+                {isMobile && (
+                    <button className="back-btn" onClick={onBack}>
+                        ←
+                    </button>
+                )}
+
+                <div className="chat-header-content">
+                    <img
                         src={contact.avatar}
                         alt={contact.name}
                         className="avatar"
@@ -98,7 +95,6 @@ const ChatWindow = ({ onOpenInfo }) => {
                         </div>
                     </div>
                 ))}
-
                 <div ref={scrollRef} />
             </main>
 
@@ -112,7 +108,7 @@ const ChatWindow = ({ onOpenInfo }) => {
                 />
 
                 <button type="submit" className="send-btn">
-                      ➜]
+                    ➜
                 </button>
             </form>
         </div>
