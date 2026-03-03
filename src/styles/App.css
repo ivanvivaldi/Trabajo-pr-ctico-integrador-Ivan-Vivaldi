@@ -1,6 +1,3 @@
-/* =========================================
-    1. VARIABLES Y RESET
-   ========================================= */
 
 :root {
     --wa-green: #00a884;
@@ -27,9 +24,6 @@ body {
     background-color: #202c33;
 }
 
-/* =========================================
-    2. APP LAYOUT
-   ========================================= */
 
 .app-container {
     height: 100dvh;
@@ -45,16 +39,14 @@ body {
     height: 100dvh;
 }
 
-/* Mini Sidebar */
+
 .mini-sidebar-container {
     width: 70px;
     min-width: 70px;
     max-width: 70px;
 }
 
-/* =========================================
-    3. LOGIN PAGE
-   ========================================= */
+/* LOGIN */
 
 .login-container {
     display: flex;
@@ -98,10 +90,7 @@ body {
     background-color: #4a7a74;
 }
 
-/* =========================================
-    4. STATUS / STORIES
-   ========================================= */
-
+/* ESTADOS/HISTORIAS DE LOS AVATARES (O CONTACTOS) */
 .user-avatar-container img {
     width: 60px;
     height: 60px;
@@ -109,9 +98,7 @@ body {
     object-fit: cover;
 }
 
-/* =========================================
-    5. CHAT WINDOW
-   ========================================= */
+/* VENTANA CHAT */
 
 @keyframes pulse-typing {
     0% { opacity: 1; }
@@ -119,9 +106,7 @@ body {
     100% { opacity: 1; }
 }
 
-/* =========================================
-    6. DARK / LIGHT MODE
-   ========================================= */
+/* MODO OSCURO Y CLARO */
 
 body.dark {
     --bg-main: #070f15;
@@ -136,12 +121,12 @@ body.light {
 }
 
 
-/* Desktop layout fix */
+
 .main-layout > div {
     display: flex;
 }
 
-/* El contenedor del chat debe ocupar el espacio restante */
+
 .main-layout > div:nth-child(3) {
     flex: 1;
 }
@@ -156,9 +141,8 @@ body.light {
     width: 350px;
     display: flex;
 }
-/* =========================================
-    7. RESPONSIVIDAD DESKTOP
-   ========================================= */
+/* RESPONSIVE */
+
 
 @media (min-width: 768px) {
 
@@ -199,10 +183,6 @@ body.light {
     }
 }
 
-/* =========================================
-    8. MOBILE - NAVEGACIÓN TIPO PANTALLAS
-   ========================================= */
-
 @media (max-width: 768px) {
 
     .main-layout {
@@ -210,15 +190,10 @@ body.light {
         overflow: hidden;
     }
 
-    /* Ocultamos mini sidebar en mobile */
     .mini-sidebar-container {
         display: none;
     }
 
-    /* Ocultamos sidebar desktop */
-/*     .sidebar-container-desktop {
-        display: none !important;
-    } */
 
     /* Cada panel ocupa pantalla completa */
     .main-layout > div {
@@ -226,7 +201,7 @@ body.light {
         height: 100%;
     }
 
-    /* Clase que controlamos desde React */
+
     .hidden-mobile {
         display: none !important;
     }
