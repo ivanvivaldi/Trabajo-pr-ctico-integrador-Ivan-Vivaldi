@@ -126,14 +126,14 @@ body {
 
 body.dark {
     --bg-main: #070f15;
-    --bg-sidebar: #2b3942;
+    --bg-sidebar: #999ea1;
     --text-color: #e9edef;
 }
 
 body.light {
     --bg-main: #95a29d;
     --bg-sidebar: #869995;
-    --text-color: #0f1315;
+    --text-color: #020405;
 }
 
 
