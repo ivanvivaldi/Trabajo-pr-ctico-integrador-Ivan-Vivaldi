@@ -7,14 +7,13 @@ import { useChat } from '../context/ChatContext';
 
 const ChatPage = () => {
     const [showInfo, setShowInfo] = useState(false);
-    const [mobileView, setMobileView] = useState("sidebar"); 
+    const [mobileView, setMobileView] = useState("sidebar");
     // "sidebar" | "chat" | "info"
 
     const { contacts, activeChat } = useChat();
 
     const contact = contacts.find(c => c.PhoneNumber === activeChat);
 
-    // Cuando se selecciona un chat, en mobile vamos a la vista chat
     useEffect(() => {
         if (activeChat && window.innerWidth <= 768) {
             setMobileView("chat");
@@ -26,18 +25,24 @@ const ChatPage = () => {
     return (
         <div className="main-layout">
 
+            {/* MINI SIDEBAR */}
             <div className="mini-sidebar-container">
                 <MiniSidebar />
             </div>
 
             {/* SIDEBAR */}
-            <div className={`sidebar-container-desktop 
-                ${isMobile && mobileView !== "sidebar" ? "hidden-mobile" : ""}`}>
+            <div
+                className={`sidebar-container-desktop 
+                ${isMobile && mobileView !== "sidebar" ? "hidden-mobile" : ""}`}
+            >
                 <Sidebar />
             </div>
 
             {/* CHAT */}
-            <div className={`${isMobile && mobileView !== "chat" ? "hidden-mobile" : ""}`}>
+            <div
+                className={`chat-container 
+                ${isMobile && mobileView !== "chat" ? "hidden-mobile" : ""}`}
+            >
                 <ChatWindow
                     onOpenInfo={() => {
                         if (isMobile) {
@@ -52,7 +57,10 @@ const ChatPage = () => {
 
             {/* INFO PANEL */}
             {(isMobile ? mobileView === "info" : showInfo) && (
-                <div className={`${isMobile && mobileView !== "info" ? "hidden-mobile" : ""}`}>
+                <div
+                    className={`info-container 
+                    ${isMobile && mobileView !== "info" ? "hidden-mobile" : ""}`}
+                >
                     <ContactInfoPanel
                         contact={contact}
                         onClose={() => {
@@ -65,7 +73,6 @@ const ChatPage = () => {
                     />
                 </div>
             )}
-
         </div>
     );
 };
