@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+/* import { useParams, Link, useNavigate } from 'react-router-dom'; */
 import { useChat } from '../../context/ChatContext';
 import './ChatWindow.css';
 
@@ -56,8 +56,12 @@ const ChatWindow = ({ onOpenInfo }) => {
     return (
         <div className="chat-window">
             <header className="chat-header">
-                <Link to="/" className="back-btn">←</Link>
-
+                {/* <Link to="/" className="back-btn">←</Link>
+ */}                {isMobile && (
+                        <button className="back-btn" onClick={onBack}>
+                            ←
+                        </button>
+                    )}
                 <div className="chat-header-content">
 
                    <img

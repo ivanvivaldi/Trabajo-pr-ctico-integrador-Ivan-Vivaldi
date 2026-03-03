@@ -50,6 +50,16 @@ const ChatPage = () => {
             {/* CHAT */}
             {(!isMobile || mobileView === "chat") && (
                 <div className="chat-container">
+                    {/* <ChatWindow
+                        onOpenInfo={() => {
+                            if (isMobile) {
+                                setMobileView("info");
+                            } else {
+                                setShowInfo(true);
+                            }
+                        }}
+                        onBack={() => setMobileView("sidebar")}
+                    /> */}
                     <ChatWindow
                         onOpenInfo={() => {
                             if (isMobile) {
@@ -59,6 +69,7 @@ const ChatPage = () => {
                             }
                         }}
                         onBack={() => setMobileView("sidebar")}
+                        isMobile={isMobile}
                     />
                 </div>
             )}
