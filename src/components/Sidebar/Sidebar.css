@@ -6,7 +6,7 @@
   flex-direction: column;
   background-color: #111b21;
   color: #e9edef;
-  border-right: 1px solid #222d34;
+  border-right: 2px solid #697f8e;
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
@@ -28,6 +28,17 @@
   overflow-y: auto;
 }
 
+.sidebar-icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .contact-list::-webkit-scrollbar {
   width: 6px;
@@ -138,4 +149,17 @@
 .sidebar {
     background-color: var(--bg-sidebar);
     color: var(--text-color);
+}
+
+/* Desktop: ocultos */
+.sidebar-actions-mobile {
+    display: none;
+}
+
+/* Mobile: visibles */
+@media (max-width: 768px) {
+    .sidebar-actions-mobile {
+        display: flex !important;
+        gap: 10px;
+    }
 }

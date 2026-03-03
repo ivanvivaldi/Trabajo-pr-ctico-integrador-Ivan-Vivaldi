@@ -10,7 +10,7 @@
     background-color:#161717;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+ /*    justify-content: space-between; */
     padding: 10px 16px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.08); 
     flex-shrink: 0;
